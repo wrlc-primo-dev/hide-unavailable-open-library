@@ -35,7 +35,7 @@
 
         // Check availability in Open Library
         self.openLibrary = function(getIt, isbn, selector, ctrl) {
-            let url = 'http://openlibrary.org/api/books?bibkeys=ISBN:' + isbn + '&format=json';
+            let url = 'https://openlibrary.org/api/books?bibkeys=ISBN:' + isbn + '&format=json';
 
             // Request the Search API URL
             $http.get(url).then(function successCallback(response) {
@@ -48,8 +48,6 @@
 
                         // If the ISBN is in the response look for a 'preview' element
                         if ((!(isbnValue['preview'])) || (isbnValue['preview'] !== 'borrow')) {
-                            console.log('WRONG');
-                            console.log(isbnValue['preview']);
 
                             // If there is no 'preview' element, then add a class to hide the OpenLibrary link
                             if (getIt === 'how') {
